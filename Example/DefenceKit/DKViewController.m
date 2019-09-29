@@ -14,16 +14,15 @@
 
 @implementation DKViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (void)unexceptOperation {
+    
+    NSObject *obj = [NSObject new];
+    [obj performSelector:NSSelectorFromString(@"greeting")];
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self unexceptOperation];
 }
 
 @end
