@@ -1,0 +1,16 @@
+PODS:
+  - DefenceKit (0.1.0)
+
+DEPENDENCIES:
+  - DefenceKit (from `../`)
+
+EXTERNAL SOURCES:
+  DefenceKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DefenceKit: 4dca5059753a63120c8ade3241bb677c064d5e40
+
+PODFILE CHECKSUM: 5d542830897c1678e5e9ac04cee966e3972b923e
+
+COCOAPODS: 1.7.5
