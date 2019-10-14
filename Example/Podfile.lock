@@ -1,23 +1,16 @@
 PODS:
-  - AppSplitKit (0.1.0)
-  - DefenceKit (0.1.0):
-    - AppSplitKit
+  - DefenceKit (0.1.0)
 
 DEPENDENCIES:
   - DefenceKit (from `../`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AppSplitKit
 
 EXTERNAL SOURCES:
   DefenceKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AppSplitKit: 06e9b9d82b87bf66da723c16a7b0183145f044f6
-  DefenceKit: 0c9e0c0881a9f8df182f98b58640fbc7d6b37f22
+  DefenceKit: 5c5ba11c457d322ee43e07ec5025355ddf61f1d2
 
 PODFILE CHECKSUM: 5d542830897c1678e5e9ac04cee966e3972b923e
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

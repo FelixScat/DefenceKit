@@ -346,12 +346,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DefenceKit_Example/Pods-DefenceKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AppSplitKit/AppSplitKit.framework",
 				"${BUILT_PRODUCTS_DIR}/DefenceKit/DefenceKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppSplitKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefenceKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
