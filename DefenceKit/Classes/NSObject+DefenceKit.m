@@ -20,27 +20,61 @@ static NSString *DKProtectClassName = @"DK_Protect_Class";
 
 static void DK_ShowError(NSString *title, NSString *message, dispatch_block_t block) {
     
-    __block BOOL holdOn = true;
+    BOOL holdOn = true;
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
-    [alert.view setTintColor:UIColor.orangeColor];
+//    [alert.view setTintColor:UIColor.orangeColor];
     [alert addAction:[UIAlertAction actionWithTitle:@"Continue" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [alert dismissViewControllerAnimated:true completion:nil];
         [[UIPasteboard generalPasteboard] setString:message];
-        holdOn = false;
+        [alert dismissViewControllerAnimated:true completion:nil];
+//        holdOn = false;
     }]];
     
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:true completion:nil];
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    window.windowLevel = UIWindowLevelStatusBar;
+    window.hidden = false;
+    window.backgroundColor = UIColor.clearColor;
+    UIViewController *controller = [UIViewController new];
+    controller.view.backgroundColor = UIColor.orangeColor;
+    window.rootViewController = controller;
+
+    [controller presentViewController:alert animated:false completion:nil];
+    
+    
+//    UIViewController *vc = [UIApplication sharedApplication].keyWindow.rootViewController;
+//    [vc presentViewController:alert animated:true completion:nil];
     
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
-    CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
+//    CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
+    NSArray *allModes = CFBridgingRelease(CFRunLoopCopyAllModes(runLoop));
     while (holdOn) {
-        for (NSString *mode in (__bridge NSArray *)allModes) {
+        for (NSString *mode in allModes) {
             CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
         }
     }
-    CFRelease(allModes);
+//    CFRelease(allModes);
 }
+
+static UIViewController * topViewController() {
+    UIViewController *resultVC;
+    resultVC = _topViewController([[UIApplication sharedApplication].keyWindow rootViewController]);
+    while (resultVC.presentedViewController) {
+        resultVC = _topViewController(resultVC.presentedViewController);
+    }
+    return resultVC;
+}
+
+static UIViewController * _topViewController(UIViewController *vc) {
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        return _topViewController([(UINavigationController *)vc topViewController]);
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        return _topViewController([(UITabBarController *)vc selectedViewController]);
+    } else {
+        return vc;
+    }
+    return nil;
+}
+
 
 static void MyAccessHandleException(NSException *exception) {
     // 堆栈信息

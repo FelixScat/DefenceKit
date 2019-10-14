@@ -1,9 +1,11 @@
-use_frameworks!
+# use_frameworks!
 
 platform :ios, '8.0'
 
 target 'DefenceKit_Example' do
   pod 'DefenceKit', :path => '../'
+  pod 'Aether', :path => '../../Aether'
+  pod 'AppSplitKit', :path => '../../AppSplitKit'
 
   target 'DefenceKit_Tests' do
     inherit! :search_paths

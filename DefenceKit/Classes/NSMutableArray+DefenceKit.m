@@ -6,10 +6,11 @@
 //
 
 #import <objc/runtime.h>
+#import "DefenceKit.h"
 
 @implementation NSMutableArray (DefenceKit)
 
-#if !DK_CARSH_ENABLE
+#if !DK_CRASH_ENABLE
 
 static void dk_swizzleInstanceMethod(Class cls, SEL originalSelector, SEL swizzledSelector) {
     Method originalMethod = class_getInstanceMethod(cls, originalSelector);

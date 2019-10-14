@@ -10,7 +10,7 @@
 
 @implementation NSNull (DefenceKit)
 
-#if !DK_CARSH_ENABLE
+#if !DK_CRASH_ENABLE
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
     

@@ -19,9 +19,11 @@
 
 - (void)uncaughtException {
     
-    NSObject *obj = [DKViewController new];
-    [obj performSelector:NSSelectorFromString(@"somemethod")];
+//    NSObject *obj = [DKViewController new];
+//    [obj performSelector:NSSelectorFromString(@"somemethod")];
     
+    UIView* view = (id)[NSObject new];
+    view.hidden = YES;
     
 //    [self performSelectorInBackground:@selector(refreshUI) withObject:nil];
     

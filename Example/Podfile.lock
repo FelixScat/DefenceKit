@@ -1,16 +1,27 @@
 PODS:
+  - Aether (0.1.0):
+    - AppSplitKit
+  - AppSplitKit (0.1.1)
   - DefenceKit (0.1.0)
 
 DEPENDENCIES:
+  - Aether (from `../../Aether`)
+  - AppSplitKit (from `../../AppSplitKit`)
   - DefenceKit (from `../`)
 
 EXTERNAL SOURCES:
+  Aether:
+    :path: "../../Aether"
+  AppSplitKit:
+    :path: "../../AppSplitKit"
   DefenceKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DefenceKit: 5c5ba11c457d322ee43e07ec5025355ddf61f1d2
+  Aether: 8b0a46bb9ff8d97a8bbd0166576497460989190c
+  AppSplitKit: a374917b21b2aca6217518721b4d3ca29d32f15d
+  DefenceKit: defe05f3b0988c0407715b0bb5f9bc5a2b6ae5b1
 
-PODFILE CHECKSUM: 5d542830897c1678e5e9ac04cee966e3972b923e
+PODFILE CHECKSUM: 170cc4e8e97ee86836057f5ada4a43a7ec1110a1
 
 COCOAPODS: 1.8.3
